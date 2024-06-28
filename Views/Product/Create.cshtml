@@ -1,0 +1,25 @@
+﻿@model product_inventory_management.Models.Product
+
+<h2>Add a product</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+        @* This line of code is rendering a validation message for the Name property of the Product model. It is using the ValidationMessageFor helper method provided by the Html class. *@
+        @* In the Product class, the [Required(ErrorMessage = "Name is required!")] attribute applied to the Name property will override the second parameter of the ValidationMessageFor method. *@
+        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Description)
+        @Html.TextBoxFor(m => m.Description)
+        @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Price)
+        @Html.TextBoxFor(m => m.Price)
+        @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+    </div>
+    <button type="submit" class="btn btn-success">Create</button>
+}

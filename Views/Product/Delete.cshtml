@@ -1,0 +1,9 @@
+﻿@model product_inventory_management.Models.Product
+
+<h2>Are you sure you want to delete <strong>@Model.Name?</strong></h2>
+@* The asp-action tag helper specifies the action method (DeleteConfirmed) that the form will invoke upon submission. *@
+<form asp-action="DeleteConfirmed">
+    @* an <input> element of type hidden is used with the asp-for tag helper to bind it to the Id property of the Product model. This means that when the form is submitted, the Id of the product to be deleted is included in the request. *@
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>

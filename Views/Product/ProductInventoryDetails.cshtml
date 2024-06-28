@@ -1,0 +1,17 @@
+﻿@model product_inventory_management.Models.ProductInventoryViewModel
+
+<h2>Product and Inventory Details</h2>
+
+<div>
+    <h4>Product Details</h4>
+    <p>Name: @Model.Product.Name</p>
+    <p>Description: @Model.Product.Description</p>
+    <p>Price: @Model.Product.Price</p>
+</div>
+
+<div>
+    <h4>Inventory Details</h4>
+    <p>Stock Quantity: @Model.Inventory.StockQuantity</p>
+    <p>Product ID: @Model.Inventory.ProductId</p>
+</div>
+

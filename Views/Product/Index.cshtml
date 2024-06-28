@@ -1,0 +1,27 @@
+﻿@* We know it's an IEnumberable because the index action returns a list of products *@
+@model IEnumerable<Product>
+
+<h2>Products</h2>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (Product product in Model)
+    {
+        <tr>
+            <td>@product.Name</td>
+            <td>@product.Description</td>
+            <td>@product.Price</td>
+            <td>
+                <!-- Adds a link to the product inventory details page for each product -->
+                <a href="@Url.Action("ProductInventoryDetails", "Product", new { id = product.Id })" class="btn btn-info">Details</a>
+                <!-- Adds a Delete link for each product -->
+                <!-- new { id = product.Id } is an anonymous object that provides route data (new { id = product.Id }). Here, it specifies the id parameter that the Delete action method requires, setting its value to the Id property of the current product in the loop.-->
+                <a href="@Url.Action("Delete", "Product", new { id = product.Id })" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
